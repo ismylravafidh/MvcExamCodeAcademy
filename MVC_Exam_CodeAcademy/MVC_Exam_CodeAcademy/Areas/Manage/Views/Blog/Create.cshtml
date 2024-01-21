@@ -1,0 +1,34 @@
+﻿@using MVC_Exam_CodeAcademy.Areas.Manage.ViewModels
+@model BlogCreateVm
+<div>
+    <h1 class="h3 mb-4 text-gray-800">Create Blog</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Title">Title</label>
+            <input asp-for="Title" class="form-control" placeholder="Enter Title">
+            <span asp-validation-for="Title" style="color:red"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description">Description</label>
+            <input asp-for="Description" class="form-control" placeholder="Enter Description">
+            <span asp-validation-for="Description" style="color:red"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Author">Author</label>
+            <input asp-for="Author" class="form-control" placeholder="Enter Author Name">
+            <span asp-validation-for="Author" style="color:red"></span>
+        </div>
+            <div class="form-group">
+                <label asp-for="Image">Title</label>
+                <input asp-for="Image" class="form-control">
+                <span asp-validation-for="Image" style="color:red"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Logo">Title</label>
+                <input asp-for="Logo" class="form-control">
+                <span asp-validation-for="Logo" style="color:red"></span>
+            </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>

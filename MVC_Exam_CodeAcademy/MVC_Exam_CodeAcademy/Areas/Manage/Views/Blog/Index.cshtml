@@ -1,0 +1,47 @@
+﻿@using MVC_Exam_CodeAcademy.Models
+@model List<Blog>
+@{
+    int count = 0;
+}
+<div>
+    <div>
+    <h1 class="h3 mb-4 text-gray-800" style="margin-left:7%">Blogs</h1>
+     <a class="btn btn-primary" style="margin-left:90%" asp-action="Create" asp-controller="Blog">Create</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#No</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Image</th>
+                <th scope="col">Logo</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                count++;
+            <tr>
+                <th scope="row">@count</th>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>
+                        <img style="width:85px" src="~/Upload/BlogImages/@item.ImageUrl" />
+                </td>
+                <td>
+                        <img style="width:85px" src="~/Upload/AuthorLogos/@item.LogoUrl" />
+                </td>
+                <td>
+                    <div>
+                        <a class="btn btn-secondary" asp-action="Update" asp-controller="Blog" asp-route-id="@item.Id">Update</a>
+                        <a class="btn btn-warning" asp-action="Delete" asp-controller="Blog" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div asp-validation-summary="All"></div>
